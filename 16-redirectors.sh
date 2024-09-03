@@ -36,7 +36,7 @@ USAGE(){
     echo -e "$R USAGE:: sudo sh 16-redirectors.sh pkg1 pkg2.... $N" &>>$LOG_FILE
     exit 1
 }
-echo "script started executing at: $(date)" &>>$LOG_FILE
+echo "script started executing at: $(date)"
 
 CHECK_ROOT
 if [ $# -eq 0 ]
@@ -46,11 +46,11 @@ fi
 
 for package in $@
 do
-    dnf list installed $package
+    dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then    
         echo "$package not installed...going to install it" &>>$LOG_FILE
-        dnf install $package -y
+        dnf install $package -y &>>$LOG_FILE
         VALIDATE $? "Installing $package"
     else
         echo -e "$Y package is already installed $N" &>>$LOG_FILE
