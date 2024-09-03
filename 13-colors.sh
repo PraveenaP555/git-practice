@@ -41,7 +41,7 @@ else
 fi
 
 
-dnf list installed mysql
+dnf list installed mysqlsss
 if [ $? -ne 0 ]
 then
     echo "Mysql is not installed"
