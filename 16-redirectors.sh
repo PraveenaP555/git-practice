@@ -33,7 +33,8 @@ CHECK_ROOT(){
     fi
 }
 USAGE(){
-    echo -e "$R USAGE:: sudo sh 16-redirectors.sh pkg1 pkg2.... $N"
+    echo -e "$R USAGE:: sudo sh 16-redirectors.sh pkg1 pkg2.... $N" &>>$LOG_FILE
+    exit 1
 }
 
 CHECK_ROOT
