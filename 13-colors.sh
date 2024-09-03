@@ -45,7 +45,7 @@ dnf list installed mysqlsss
 if [ $? -ne 0 ]
 then
     echo "Mysql is not installed"
-    dnf install mysql -y
+    dnf install mysqlsss -y
     VALIDATE $? "Installing MySQL"
 else
     echo "mysql is already installed"
