@@ -36,6 +36,7 @@ USAGE(){
     echo -e "$R USAGE:: sudo sh 16-redirectors.sh pkg1 pkg2.... $N" &>>$LOG_FILE
     exit 1
 }
+echo "script started executing at: $(date)" &>>$LOG_FILE
 
 CHECK_ROOT
 if [ $# -eq 0 ]
