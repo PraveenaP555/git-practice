@@ -8,11 +8,12 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
 
 USERID=$(id -u)
-echo "user id is: $USERID"
+echo "user id is: $USERID" &>>$LOG_FILE
 
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
+Y="\e[33m"
 
 VALIDATE(){
     if [ $1 -ne 0 ]
@@ -27,7 +28,7 @@ VALIDATE(){
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo "please run the script with root priveleges" &>>$LOG_FILE
+        echo "$R please run the script with root priveleges $N" &>>$LOG_FILE
         exit 1
     fi
 }
@@ -43,6 +44,6 @@ do
         dnf install $package -y
         VALIDATE $? "Installing $package"
     else
-        echo "package is already installed" &>>$LOG_FILE
+        echo "$Y package is already installed $N" &>>$LOG_FILE
     fi
 done
