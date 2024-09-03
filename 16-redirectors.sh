@@ -28,12 +28,19 @@ VALIDATE(){
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo "$R please run the script with root priveleges $N" &>>$LOG_FILE
+        echo -e "$R please run the script with root priveleges $N" &>>$LOG_FILE
         exit 1
     fi
 }
+USAGE(){
+    echo -e "$R USAGE:: sudo sh 16-redirectors.sh pkg1 pkg2.... $N"
+}
 
 CHECK_ROOT
+if [ $# -eq 0 ]
+then   
+    USAGE
+fi
 
 for package in $@
 do
@@ -44,6 +51,6 @@ do
         dnf install $package -y
         VALIDATE $? "Installing $package"
     else
-        echo "$Y package is already installed $N" &>>$LOG_FILE
+        echo -e "$Y package is already installed $N" &>>$LOG_FILE
     fi
 done
