@@ -2,7 +2,7 @@
 
 SOURCE_DIR=$1
 DEST_DIR=$2
-NO_OF_DAYS=${3:-14} #if $3 is empty, default is 14 days
+DAYS=${3:-14} #if $3 is empty, default is 14 days
 
 R="\e[31m"
 G="\e[32m"
@@ -17,3 +17,22 @@ if [ $# -lt 2 ]
 then
     USAGE
 fi
+
+if [ ! -d $SOURCE_DIR]
+then
+    echo "$SOURCE_DIR does not exist....please check"
+fi     
+
+if [ ! -d $DEST_DIR]
+then
+    echo "$DEST_DIR does not exist....please check"
+fi    
+
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
+echo "Files: $FILES"
+
+if [ -n $FILES ]
+then
+    echo "files are found"
+else
+    echo "no files older than $DAYS"
