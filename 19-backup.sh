@@ -12,6 +12,7 @@ Y="\e[33m"
 
 USAGE(){
     echo -e "$R USAGE:: $N sh 19-backup.sh <source> <destination> <days(optional)>"
+    exit 1
 }
 
 if [ $# -lt 2 ]
