@@ -11,5 +11,5 @@ if [ -d $SOURCE_DIR]
 then    
     echo -e "$SOURCE_DIR $G exists $N"
 else
-    echo "$SOURCE_DIR $R does not exists $N"
+    echo -e "$SOURCE_DIR $R does not exists $N"
 fi
