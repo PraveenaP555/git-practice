@@ -36,3 +36,4 @@ then
     echo "files are found"
 else
     echo "no files older than $DAYS"
+fi
