@@ -15,11 +15,11 @@ else
     exit 1
 fi
 
-FILES=$(find $SOURCE_DIR -name "*.log")
+FILES=$(find $SOURCE_DIR -name "*.log" -mtime +14)
 echo "Files: $FILES"
 
-while IFS= read line #IFS,internal filed seperator, empty it iwll ignore white spaces,-r is for not to ignore special characters liek /
+while IFS= read -r line #IFS,internal filed seperator, empty it iwll ignore white spaces,-r is for not to ignore special characters liek /
 do
     echo "Deleting line: $line"
-    #rm -rf $line
+    rm -rf $line
 done <<< $FILES
