@@ -6,18 +6,20 @@
 
 # Input file
 input_file="/home/ec2-user/file.txt"
-# Temporary files
-temp_file1=$(mktemp)
-temp_file2=$(mktemp)
 
-# Transpose the rows to columns
+input_file="data.txt"
+
+# Output file
+output_file="transposed_data.txt"
+
+# Transpose the file
 awk '
 {
     for (i = 1; i <= NF; i++) {
         matrix[NR, i] = $i
     }
     n = NF
-} 
+}
 END {
     for (i = 1; i <= n; i++) {
         for (j = 1; j <= NR; j++) {
@@ -26,10 +28,4 @@ END {
         }
         printf "\n"
     }
-}' "$input_file" > "$temp_file1"
-
-# Move the result to the output file
-mv "$temp_file1" "transposed_file.txt"
-
-# Clean up temporary files
-rm -f "$temp_file2"
+}' "$input_file" > "$output_file"
