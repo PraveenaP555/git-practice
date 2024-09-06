@@ -29,7 +29,7 @@ END {
 }' "$input_file" > "$temp_file1"
 
 # Move the result to the output file
-mv "$temp_file1" "transposed_$input_file"
+mv "$temp_file1" "transposed_file.txt"
 
 # Clean up temporary files
 rm -f "$temp_file2"
