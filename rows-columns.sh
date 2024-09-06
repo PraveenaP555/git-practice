@@ -7,7 +7,6 @@
 # Input file
 input_file="/home/ec2-user/file.txt"
 
-input_file="data.txt"
 
 # Output file
 output_file="transposed_data.txt"
