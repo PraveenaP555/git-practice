@@ -9,7 +9,7 @@ input_file="/home/ec2-user/file.txt"
 
 
 # Output file
-output_file="transposed_data.txt"
+output_file="/home/ec2-user/transposed_data.txt"
 
 # Transpose the file
 awk '
